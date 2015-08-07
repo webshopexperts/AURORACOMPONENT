@@ -8,6 +8,8 @@
         }
     ],
     "autoload": {
-        "classmap": ["Tonic"]
+        "psr-4": {
+            "Tonic\\": ""
+        }
     }
 }
