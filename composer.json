@@ -1,0 +1,13 @@
+{
+    "name": "aurora/tonic",
+    "description": "Aurora Tonic component",
+    "authors": [
+        {
+            "name": "WebShop-Experts Developer Team",
+            "email": "dev@webshopexperts.hu"
+        }
+    ],
+    "autoload": {
+        "classmap": ["Tonic"]
+    }
+}
