@@ -316,7 +316,7 @@ class Application
             foreach ($items[1] as $item) {
                 preg_match_all('/"[^"]+"|[^\s]+/', $item, $parts);
                 $key = array_shift($parts[0]);
-                array_walk($parts[0], create_function('&$v', '$v = trim($v, \'"\');'));
+                array_walk($parts[0], function(&$v) {$v = trim($v, '"'); });
                 $data[$key][] = $parts[0];
             }
         }
