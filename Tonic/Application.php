@@ -159,7 +159,10 @@ class Application
         if (!$request) {
             $request= new Request();
         }
-        foreach ($this->resources as $className => $resourceMetadata) {
+
+        $resources = $this->resources ?? [];
+
+        foreach ($resources as $className => $resourceMetadata) {
             if (isset($resourceMetadata['uri'])) {
                 if (!is_array($resourceMetadata['uri'])) {
                     $resourceMetadata['uri'] = array($resourceMetadata['uri']);
