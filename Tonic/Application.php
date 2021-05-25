@@ -35,7 +35,7 @@ class Application
 
         $cache = isset($options['cache']) ? $options['cache'] : NULL;
         if ($cache && $cache->isCached()) { // if we've been given a annotation cache, use it
-            $this->resources = $cache->load();
+            $this->resources = $cache->load() ?? [];
         } else { // otherwise load from loaded resource files
             if (isset($options['load'])) { // load given resource class files
                 $this->loadResourceFiles($options['load']);
@@ -159,10 +159,7 @@ class Application
         if (!$request) {
             $request= new Request();
         }
-
-        $resources = $this->resources ?? [];
-
-        foreach ($resources as $className => $resourceMetadata) {
+        foreach ($this->resources as $className => $resourceMetadata) {
             if (isset($resourceMetadata['uri'])) {
                 if (!is_array($resourceMetadata['uri'])) {
                     $resourceMetadata['uri'] = array($resourceMetadata['uri']);
